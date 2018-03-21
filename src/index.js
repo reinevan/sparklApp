@@ -1,8 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './stylesheets/index.css'
+import Root from './components/Root'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// Configure caching
+import registerSW from './helpers/registerSW'
+
+// setup fake backend
+import { configureFakeBE } from './helpers/fakeBE'
+configureFakeBE();
+
+ReactDOM.render(
+    <Root/>,
+    document.getElementById('root')
+);
+
+registerSW()
